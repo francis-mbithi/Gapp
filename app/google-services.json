@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "398694441781",
+    "firebase_url": "https://garbage-fff24.firebaseio.com",
+    "project_id": "garbage-fff24",
+    "storage_bucket": "garbage-fff24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398694441781:android:5e0d55714688e7007f627c",
+        "android_client_info": {
+          "package_name": "com.moringaschool.garbage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398694441781-ssir3dp518gmdor8bgtq48ag78tgrhkd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.garbage",
+            "certificate_hash": "ba9a8325ebfd5bcc30d5bb44671a0112dffa74f2"
+          }
+        },
+        {
+          "client_id": "398694441781-cnc2q8tjpc4jf70us4c0glg6uvkqgt0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeDkLFAV4Hs1TD8kR1JfldnW6aw0z7txg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398694441781-cnc2q8tjpc4jf70us4c0glg6uvkqgt0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

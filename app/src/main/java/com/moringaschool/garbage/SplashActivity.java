@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-//    Handler handler;
-//    ImageView imageView;
     Animation anim;
     ImageView imageView;
 
@@ -21,15 +19,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-//        handler=new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        },3000);
 
         imageView=(ImageView)findViewById(R.id.logo_id); // Declare an imageView to show the animation.
         anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in); // Create the animation.
@@ -42,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
-                finish();                // HomeActivity.class is the activity to go after showing the splash screen.
+                finish();
             }
 
             @Override

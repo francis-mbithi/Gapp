@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.moringaschool.makeups.presentation.select_product.SelectProductActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,10 +27,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-
-
-//    @BindView(R.id.signupButton) Button mSignupButton;
-//    @BindView(R.id.signIn_text) Button mSignIn_text;
 
     @BindView(R.id.signupButton) Button mCreateUserButton;
     @BindView(R.id.nameEditText) EditText mNameEditText;
@@ -55,16 +50,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
 
-//        createNewUser();
-
-//        TextView signIn_text = findViewById(R.id.signIn_text);
-//        signIn_text.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-//                finish();
-//            }
-//        });
     }
 
 
@@ -104,19 +89,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 });
     }
 
-//
-//    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
-//        if(task.isSuccessful){
-//            Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }else {
-//            Toast.makeText(this, "Registration Failed", Toast.LENGTH_LONG).show()
-//        }
-//    })
-
-
 
 
 
@@ -127,7 +99,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(SignupActivity.this, SelectProductActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
