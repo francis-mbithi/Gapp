@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Enter Location"
+        android:text="Request Pickup"
         android:textColor="@color/colorTextIcons"
         android:background="@color/colorAccent"/>
 </RelativeLayout>
