@@ -18,14 +18,13 @@ public class GarbActivity extends AppCompatActivity {
     TextView mLocationTextView;
     @BindView(R.id.listView)
     ListView mListView;
-    private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
-            "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
-            "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
-            "Lardo", "Portland City Grill", "Fat Head's Brewery",
-            "Chipotle", "Subway"};
-    private String[] cuisines = new String[] {"Vegan Food", "Breakfast", "Fishs Dishs",
-            "Scandinavian", "Coffee", "English Food", "Burgers", "Fast Food", "Noodle Soups",
-            "Mexican", "BBQ", "Cuban", "Bar Food", "Sports Bar", "Breakfast", "Mexican" };
+    private String[] restaurants = new String[] {"Truck A", "Truck B",
+            "Truck C", "Truck D", "Truck E", "Truck F",
+            "Truck G", "Truck H", "Truck I", "Truck J",
+            "Truck K", "Truck L"};
+    private String[] cuisines = new String[] {"Zone 1", "Zone 2", "Zone 3",
+            "Zone 4", "Zone 5", "Zone 6", "Zone 7", "Zone 8", "Zone 9",
+            "Zone 10", "Zone 11", "Zone 12", "Zone 13 "};
 
 
     @Override
@@ -45,7 +44,7 @@ public class GarbActivity extends AppCompatActivity {
                 Toast.makeText(GarbActivity.this, restaurant, Toast.LENGTH_LONG).show();
             }
         });
-        mLocationTextView.setText("Here are all the restaurants near: " + location);
+        mLocationTextView.setText("Trucks near you: " + location);
     }
 
 
