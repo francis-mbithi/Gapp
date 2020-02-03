@@ -49,7 +49,7 @@ public class GarbActivity extends AppCompatActivity {
                 Toast.makeText(GarbActivity.this, trucks, Toast.LENGTH_LONG).show();
             }
         });
-        mLocationTextView.setText("Trucks near you: " + location);
+        mLocationTextView.setText("The trucks available are: " + location);
     }
 
     @Override
