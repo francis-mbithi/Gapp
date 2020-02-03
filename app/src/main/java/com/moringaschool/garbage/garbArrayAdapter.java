@@ -5,25 +5,25 @@ import android.widget.ArrayAdapter;
 
 public class garbArrayAdapter extends ArrayAdapter {
     private Context mContext;
-    private String[] mRestaurants;
-    private String[] mCuisines;
+    private String[] mTrucks;
+    private String[] mZones;
 
-    public garbArrayAdapter (Context mContext, int resource, String[] mRestaurants, String[] mCuisines){
+    public garbArrayAdapter (Context mContext, int resource, String[] mTrucks, String[] mZones){
         super(mContext, resource);
         this.mContext = mContext;
-        this.mCuisines = mCuisines;
-        this.mRestaurants = mRestaurants;
+        this.mZones = mZones;
+        this.mTrucks = mTrucks;
     }
 
     @Override
     public Object getItem(int position){
-        String restaurant = mRestaurants[position];
-        String cuisine = mCuisines[position];
-        return String.format("%s \n Serves great: %s", restaurant, cuisine);
+        String trucks = mTrucks[position];
+        String zones = mZones[position];
+        return String.format("%s \n Operates: %s", trucks, zones);
     }
 
     @Override
     public int getCount(){
-        return mRestaurants.length;
+        return mTrucks.length;
     }
 }
