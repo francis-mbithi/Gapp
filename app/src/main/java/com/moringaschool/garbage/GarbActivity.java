@@ -2,13 +2,22 @@ package com.moringaschool.garbage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class GarbActivity extends AppCompatActivity {
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.listView) ListView mListView;
+    @BindView(R.id.locationTextView)
+    TextView mLocationTextView;
+    @BindView(R.id.listView)
+    ListView mListView;
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
@@ -27,7 +36,7 @@ public class GarbActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        MyRestaurantsArrayAdapter adapter = new MyRestaurantsArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants, cuisines);
+        garbArrayAdapter adapter = new garbArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants, cuisines);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
