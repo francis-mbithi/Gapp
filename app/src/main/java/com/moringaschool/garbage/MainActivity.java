@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        Typeface caviarFont = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
-//        mAppNameTextView.setTypeface(caviarFont);
         mfindLocationButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
