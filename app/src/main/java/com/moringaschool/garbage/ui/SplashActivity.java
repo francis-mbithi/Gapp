@@ -1,4 +1,4 @@
-package com.moringaschool.garbage;
+package com.moringaschool.garbage.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.moringaschool.garbage.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
+                Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

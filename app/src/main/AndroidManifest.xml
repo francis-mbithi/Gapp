@@ -19,17 +19,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GarbActivity">
+        <activity
+            android:name=".ui.HomeActivity"></activity>
+        <activity
+            android:name=".ui.MovieDetailActivity"
+            android:parentActivityName=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:parentActivityName=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.SignupActivity" />
+        <activity
+            android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.GroupChat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.garbage.MainActivity">
-            </meta-data>
-
+                android:value=".ui.HomeActivity" />
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
