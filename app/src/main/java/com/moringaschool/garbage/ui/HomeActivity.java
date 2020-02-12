@@ -45,8 +45,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home2);
         ButterKnife.bind(this);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    class ViewPagerAdapter extends FragmentPagerAdapter{
 
         private List<Fragment> mFragmentsLists = new ArrayList<>();
         private List<String>mFragmentTitle = new ArrayList<>();

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GaMoV</string>
+    <string name="title_activity_home">Movies</string>
+    <string name="tab_text_1">POPULAR MOVIES</string>
+    <string name="tab_text_2">ALL MOVIES</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">LOGIN</string>
+    <string name="have_no_account_sign_up">Have no account? Sign up</string>
+    <string name="login_textbtn">Login</string>
+    <string name="sign_up">SIGN UP</string>
+
 </resources>

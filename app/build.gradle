@@ -68,7 +68,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:6.2.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
     implementation 'com.google.firebase:firebase-core:17.2.2'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.0'
     //Circle imageView
     implementation 'de.hdodenhof:circleimageview:3.0.2'
 
