@@ -1,5 +1,5 @@
 # Gapp
-Gapp is an android application that enables you to request for garbage collection services.
+Gapp is a movie Store application that themoviedb api. 
 
 ## Author
  Francis Mbithi.
