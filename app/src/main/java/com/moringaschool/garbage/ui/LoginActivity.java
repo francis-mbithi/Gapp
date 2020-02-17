@@ -24,21 +24,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = LoginActivity.class.getSimpleName();
 
-
-
-    @BindView(R.id.signinButton) Button mPasswordLoginButton;
-    @BindView(R.id.emailEditText) EditText mEmailEditText;
-    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
-    @BindView(R.id.signUp_text) TextView mLoginTextView;
-
+    private static final String TAG = LoginActivity.class.getSimpleName();
+    @BindView(R.id.signuptv)
+    TextView signUpTextView;
+    @BindView(R.id.loginBtn)
+    Button loginButton;
+    @BindView(R.id.emailField)
+    EditText mEmailEditText;
+    @BindView(R.id.passwordField) EditText mPassWordEditText;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
     private ProgressDialog mAuthProgressDialog;
-
 
 
     @Override
@@ -46,77 +44,77 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
-        mLoginTextView.setOnClickListener(this);
-        mPasswordLoginButton.setOnClickListener(this);
-
-
+        signUpTextView.setOnClickListener(this);
+        loginButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener(){
+        createAuthProgressDialog();
+
+        //Auth stateListener
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
+                if (user != null){
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }
             }
         };
-        createAuthProgressDialog();
     }
-
-    private void createAuthProgressDialog(){
+    private void createAuthProgressDialog() {
         mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.setMessage("Authenticating with Firebase...");
         mAuthProgressDialog.setCancelable(false);
     }
 
-
-
-
     @Override
     public void onClick(View v) {
-        if(v == mLoginTextView){
-            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+        if (v == signUpTextView){
+            Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);
             finish();
-
         }
-        if (v == mPasswordLoginButton){
+        if (v == loginButton){
             loginWithPassword();
         }
-
     }
-    private void loginWithPassword(){
+    public void loginWithPassword(){
         String email = mEmailEditText.getText().toString().trim();
-        String password = mPasswordEditText.getText().toString().trim();
-        if(email.equals("")){
-            mEmailEditText.setError("Please Enter Your Email");
+        String password = mPassWordEditText.getText().toString().trim();
+        if (email.equals("")){
+            mEmailEditText.setError("Please email cannot be blank");
             return;
         }
-        if(password.equals("")){
-            mPasswordEditText.setError("Password cannot be blank");
+        if (password.equals("")){
+            mPassWordEditText.setError("Please password cannot be blank");
             return;
         }
-        mAuthProgressDialog.show();
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                mAuthProgressDialog.dismiss();
-                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                if(!task.isSuccessful()){
-                    Log.w(TAG, "signInWithEmail", task.getException());
-                    Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_LONG).show();
 
-                }
-            }
-        });
+        mAuthProgressDialog.show();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        mAuthProgressDialog.dismiss();
+                        if (task.isSuccessful()){
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
@@ -124,6 +122,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStop() {
         super.onStop();
-        mAuth.removeAuthStateListener(mAuthListener);
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }

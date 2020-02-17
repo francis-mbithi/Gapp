@@ -1,5 +1,5 @@
 # Gapp
-Gapp is a movie Store application that themoviedb api. 
+Gapp is a movie Store application that uses themoviedb api. 
 
 ## Author
  Francis Mbithi.

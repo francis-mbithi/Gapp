@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,6 +73,8 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+
+//            Toast.makeText(mContext, "clicked:"+itemPosition, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(mContext, MovieDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("movies", Parcels.wrap(mPopular));

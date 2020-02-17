@@ -42,6 +42,7 @@ public class GroupChat extends AppCompatActivity {
         getSupportActionBar().setTitle("Chats");
         ButterKnife.bind(this);
 
+
         db = FirebaseFirestore.getInstance();
         chatRef = db.collection("chats");
 

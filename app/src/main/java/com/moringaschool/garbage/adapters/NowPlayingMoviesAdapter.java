@@ -42,6 +42,8 @@ public class NowPlayingMoviesAdapter extends RecyclerView.Adapter<NowPlayingMovi
     public void onBindViewHolder(@NonNull PlayingNowViewHolder holder, int position) {
         Picasso.get().load(Constants.IMAGE_URL + playingNowList.get(position).getPosterPath()).into(holder.imageView);
         holder.textView.setText(playingNowList.get(position).getOriginalTitle());
+
+
     }
 
     @Override
