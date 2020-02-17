@@ -48,11 +48,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home2);
         ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
-
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
@@ -141,7 +136,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         builder.setPositiveButton(R.string.ok, (dialog, id) -> {
             // User clicked OK button
             mAuth.signOut();
-//            updateUI(null);
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
         });

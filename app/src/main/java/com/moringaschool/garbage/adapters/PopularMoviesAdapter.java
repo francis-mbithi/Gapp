@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +46,6 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
     @Override
     public void onBindViewHolder(@NonNull PopularMovieViewHolder holder, int position) {
         holder.mTitle.setText(mPopular.get(position).getTitle());
-//        holder.overview.setText(mPopular.get(position).getOverview());
         Picasso.get().load(Constants.IMAGE_URL + mPopular.get(position).getPosterPath()).into(holder.mImageView);
     }
 
@@ -60,8 +58,6 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
 
         @BindView(R.id.movieTitle)
         TextView mTitle;
-//        @BindView(R.id.overView) TextView overview;
-//        @BindView(R.id.voteAverage) TextView average;
         @BindView(R.id.movieImage)
         ImageView mImageView;
         public PopularMovieViewHolder(@NonNull View itemView) {
@@ -74,7 +70,6 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
 
-//            Toast.makeText(mContext, "clicked:"+itemPosition, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(mContext, MovieDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("movies", Parcels.wrap(mPopular));
