@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GaMoV</string>
+    <string name="app_name">Movies</string>
     <string name="title_activity_home">Movies</string>
     <string name="tab_text_1">POPULAR MOVIES</string>
     <string name="tab_text_2">ALL MOVIES</string>
