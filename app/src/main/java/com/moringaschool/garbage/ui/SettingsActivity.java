@@ -50,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ButterKnife.bind(this);
         getSupportActionBar().setTitle("Settings");
         mImageProfile.setOnClickListener(this);
-        
+
         db = FirebaseFirestore.getInstance();
         photoRef = db.collection("ProfilePhoto");
 
@@ -69,14 +69,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         };
     }
 
-
     @Override
     public void onClick(View v) {
         if (v == mImageProfile){
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (intent.resolveActivity(getPackageManager()) != null){
                 startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);
-
             }
         }
     }
@@ -105,7 +103,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-        ;
     }
 
     @Override
@@ -113,7 +110,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         super.onStop();
         if (mAuthListener != null){
             mAuth.removeAuthStateListener(mAuthListener);
-
         }
     }
 
