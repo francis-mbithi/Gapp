@@ -1,5 +1,6 @@
 package com.moringaschool.garbage.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -38,12 +40,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
         ButterKnife.bind(this);
+        mAuth = FirebaseAuth.getInstance();
 
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -129,12 +133,26 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setMessage(R.string.dialog_message)
+                .setTitle(R.string.dialog_title);
+        builder.setPositiveButton(R.string.ok, (dialog, id) -> {
+            // User clicked OK button
+            mAuth.signOut();
+//            updateUI(null);
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton(R.string.cancel, (dialog, id) -> {
+            // User cancelled the dialog
+            dialog.cancel();
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
+
+
 
 }
