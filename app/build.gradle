@@ -71,6 +71,7 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.0'
     //Circle imageView
     implementation 'de.hdodenhof:circleimageview:3.0.2'
+    implementation 'com.karumi:dexter:6.0.2'
 
 
 }

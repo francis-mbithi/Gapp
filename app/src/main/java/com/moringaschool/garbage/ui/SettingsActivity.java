@@ -24,8 +24,6 @@ import com.moringaschool.garbage.R;
 import com.moringaschool.garbage.util.Constants;
 
 import java.io.ByteArrayOutputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,7 +50,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
         getSupportActionBar().setTitle("Settings");
-        mImageProfile.setOnClickListener(this);
+        mImageProfile = (ImageView) this.findViewById(R.id.imageProfile);
+        mImageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
+            }
+        });
 
         db = FirebaseFirestore.getInstance();
         photoRef = db.collection("ProfilePhoto");
