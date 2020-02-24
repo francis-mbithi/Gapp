@@ -3,13 +3,10 @@ package com.moringaschool.garbage.ui;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,13 +32,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    GestureDetector gestureDetector;
-
 
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
@@ -51,8 +46,6 @@ public class HomeActivity extends AppCompatActivity implements GestureDetector.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
-        gestureDetector = new GestureDetector(HomeActivity.this, (GestureDetector.OnGestureListener) HomeActivity.this);
-
         ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -62,68 +55,6 @@ public class HomeActivity extends AppCompatActivity implements GestureDetector.O
         tabLayout.setupWithViewPager(viewPager);
 
         floatingActionButton.setOnClickListener(this);
-
-    }
-
-    @Override
-    public boolean onDown(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onFling(MotionEvent motionEvent1, MotionEvent motionEvent2, float X, float Y) {
-
-        if(motionEvent1.getY() - motionEvent2.getY() > 50){
-
-            Toast.makeText(HomeActivity.this , " Swipe Up " , Toast.LENGTH_LONG).show();
-
-            return true;
-        }
-
-        if(motionEvent2.getY() - motionEvent1.getY() > 50){
-
-            Toast.makeText(HomeActivity.this , " Swipe Down " , Toast.LENGTH_LONG).show();
-
-            return true;
-        }
-
-        if(motionEvent1.getX() - motionEvent2.getX() > 50){
-
-            Toast.makeText(HomeActivity.this , " Swipe Left " , Toast.LENGTH_LONG).show();
-
-            return true;
-        }
-
-        if(motionEvent2.getX() - motionEvent1.getX() > 50) {
-
-            Toast.makeText(HomeActivity.this, " Swipe Right ", Toast.LENGTH_LONG).show();
-
-            return true;
-        }
-        else {
-
-            return true ;
-        }
     }
 
 
