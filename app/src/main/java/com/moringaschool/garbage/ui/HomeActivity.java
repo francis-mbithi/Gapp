@@ -63,17 +63,6 @@ public class HomeActivity extends AppCompatActivity implements GestureDetector.O
 
         floatingActionButton.setOnClickListener(this);
 
-        if(getResources().getDisplayMetrics().widthPixels>getResources().getDisplayMetrics().
-                heightPixels)
-        {
-            Toast.makeText(this,"Screen switched to Landscape mode",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(this,"Screen switched to Portrait mode",Toast.LENGTH_SHORT).show();
-        }
-
-
     }
 
     @Override
