@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "398694441781",
-    "firebase_url": "https://garbage-fff24.firebaseio.com",
-    "project_id": "garbage-fff24",
-    "storage_bucket": "garbage-fff24.appspot.com"
+    "project_number": "341881625532",
+    "firebase_url": "https://budget-d42fc.firebaseio.com",
+    "project_id": "budget-d42fc",
+    "storage_bucket": "budget-d42fc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:398694441781:android:5e0d55714688e7007f627c",
+        "mobilesdk_app_id": "1:341881625532:android:262f5f9d0cfda2dd1469b9",
         "android_client_info": {
-          "package_name": "com.moringaschool.garbage"
+          "package_name": "com.moringaschool.budget"
         }
       },
       "oauth_client": [
         {
-          "client_id": "398694441781-ssir3dp518gmdor8bgtq48ag78tgrhkd.apps.googleusercontent.com",
+          "client_id": "341881625532-bndai1t3fvu0v3nuuqtim0il6cp1ott8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.moringaschool.garbage",
+            "package_name": "com.moringaschool.budget",
             "certificate_hash": "ba9a8325ebfd5bcc30d5bb44671a0112dffa74f2"
           }
         },
         {
-          "client_id": "398694441781-cnc2q8tjpc4jf70us4c0glg6uvkqgt0u.apps.googleusercontent.com",
+          "client_id": "341881625532-rk4ukq4dv9h7t8suj3crjinmqujem8ie.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBeDkLFAV4Hs1TD8kR1JfldnW6aw0z7txg"
+          "current_key": "AIzaSyBYN9PTM1JfWvlsDJwTa7GZKH7rTsuyGMg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "398694441781-cnc2q8tjpc4jf70us4c0glg6uvkqgt0u.apps.googleusercontent.com",
+              "client_id": "341881625532-rk4ukq4dv9h7t8suj3crjinmqujem8ie.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

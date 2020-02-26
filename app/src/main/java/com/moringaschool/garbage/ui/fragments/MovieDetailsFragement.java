@@ -1,8 +1,10 @@
 package com.moringaschool.garbage.ui.fragments;
 
 
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -33,6 +35,11 @@ public class MovieDetailsFragement extends Fragment {
     TextView mTitle;
     @BindView(R.id.movieDescription) TextView mDescription;
     private Result movies;
+
+    private Matrix imageMatrix = new Matrix();
+    private ImageView imageView;
+    private float scale = 2f;
+    private ScaleGestureDetector gestureDetector;
 
     public MovieDetailsFragement() {
         // Required empty public constructor

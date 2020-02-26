@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.moringaschool.garbage.R;
@@ -49,7 +50,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
         getSupportActionBar().setTitle("Settings");
-        mImageProfile.setOnClickListener(this);
+        mImageProfile = (ImageView) this.findViewById(R.id.imageProfile);
+        mImageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
+            }
+        });
 
         db = FirebaseFirestore.getInstance();
         photoRef = db.collection("ProfilePhoto");
@@ -97,6 +105,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         Map<String, String> pic = new HashMap<>();
         pic.put("imageUrl", imageEncoded);
         photoRef.add(pic);
+
+//        DatabaseReference ref = FirebaseDatabase.getInstance()
+//                .getReference(Constants.FIREBASE_PHOTO)
+//                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+////                .child(mImageProfile.getIma)
+//                .child("imageUrl");
+//        ref.setValue(imageEncoded);
     }
 
     @Override
