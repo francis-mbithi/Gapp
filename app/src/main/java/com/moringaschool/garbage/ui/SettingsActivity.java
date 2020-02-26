@@ -16,14 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.moringaschool.garbage.R;
-import com.moringaschool.garbage.util.Constants;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -102,16 +102,16 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ByteArrayOutputStream bios = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, bios);
         String imageEncoded = Base64.encodeToString(bios.toByteArray(), Base64.DEFAULT);
-//        Map<String, String> pic = new HashMap<>();
-//        pic.put("imageUrl", imageEncoded);
-//        photoRef.add(pic);
+        Map<String, String> pic = new HashMap<>();
+        pic.put("imageUrl", imageEncoded);
+        photoRef.add(pic);
 
-        DatabaseReference ref = FirebaseDatabase.getInstance()
-                .getReference(Constants.FIREBASE_PHOTO)
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                .child(mImageProfile.getIma)
-                .child("imageUrl");
-        ref.setValue(imageEncoded);
+//        DatabaseReference ref = FirebaseDatabase.getInstance()
+//                .getReference(Constants.FIREBASE_PHOTO)
+//                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+////                .child(mImageProfile.getIma)
+//                .child("imageUrl");
+//        ref.setValue(imageEncoded);
     }
 
     @Override
